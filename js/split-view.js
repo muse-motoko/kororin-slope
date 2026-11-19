@@ -1,5 +1,5 @@
 // 分裂した子たちの見た目：小さなおむすび。「ぽんっ」と膨らんで現れ、合流で吸い込まれて縮み、落ちたら静かに透けていく。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { SPLIT, ONIGIRI } from './config.js';
 import { createOnigiri, createOnigiriShared } from './onigiri.js';
 
