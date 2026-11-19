@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#bfe3ff">
+<title>無限ころりんスロープ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="hud">
+  <div id="title">無限ころりんスロープ</div>
+  <div id="biome"></div>
+  <div id="toolbar">
+    <button id="quality" type="button" aria-label="画質切り替え">画質: -</button>
+    <button id="post-btn" type="button" aria-label="やわらか効果の切り替え">効果: -</button>
+    <button id="sound-btn" type="button" aria-label="音のオン・オフ">音: -</button>
+    <button id="zukan-btn" type="button" aria-label="具ずかんを開く">ずかん</button>
+    <button id="shoot-btn" type="button" aria-label="撮影モード">撮影</button>
+  </div>
+  <div id="meter"><span id="dist">0 m</span><span id="best">最長 0 m</span><span id="filling"></span></div>
+  <div id="toast" aria-live="polite"></div>
+  <div id="flash"></div>
+  <div id="intro" aria-hidden="true">
+    <div id="intro-title">無限ころりんスロープ</div>
+    <div id="intro-hint"><p>画面の左右をタッチ（← →）で、ちょっと曲がれるよ</p><p id="intro-first">ドラッグでカメラ、ピンチ／ホイールで寄り引き</p><p id="intro-sound">タップすると音がはじまるよ</p></div>
+  </div>
+  <div id="shootbar" hidden>
+    <button id="shot-png" type="button">PNG保存</button>
+    <button id="shot-share" type="button">シェア画像</button>
+    <button id="shot-close" type="button">もどる</button>
+  </div>
+  <div id="shot-msg" aria-live="polite"></div>
+  <div id="zukan" hidden>
+    <div id="zukan-box">
+      <div id="zukan-head"><b>具ずかん</b><span id="zukan-count"></span><button id="zukan-close" type="button">とじる</button></div>
+      <div id="zukan-grid"></div>
+    </div>
+  </div>
+</div>
+<div id="curtain"></div>
+<div id="fatal" hidden style="position:fixed;inset:0;z-index:99;display:none;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;background:#fff7ea;color:#4a3b2a;font:16px/1.7 system-ui,sans-serif;text-align:center">
+  <div style="max-width:30em"><div style="font-size:42px">🍙</div><p id="fatal-msg" style="font-weight:bold"></p><p id="fatal-sub" style="font-size:14px"></p><p><button type="button" onclick="location.reload()" style="padding:8px 18px;border:0;border-radius:16px;background:#eadfc8;font-size:15px">もういちど読み込む</button></p></div>
+</div>
+<noscript><p style="position:fixed;inset:0;margin:0;padding:24px;background:#fff7ea;color:#4a3b2a;font:16px/1.7 system-ui,sans-serif;text-align:center">🍙 このページは JavaScript が必要です。JavaScript を有効にして、ページを読み込み直してください。</p></noscript>
+<script>
+// 読み込み失敗の案内（読み込み前に動くよう、通常のスクリプトで先に置く。外部ファイルに頼らない）
+(function () {
+  var shown = false;
+  window.__kororinFail = function (msg, sub) {
+    if (shown) return; shown = true;
+    var f = document.getElementById('fatal');
+    document.getElementById('fatal-msg').textContent = msg;
+    document.getElementById('fatal-sub').textContent = sub || '';
+    f.hidden = false; f.style.display = 'flex';
+  };
+  window.__kororinBooted = function () { window.__booted = true; };
+  window.__kororinLoadFail = function () {
+    window.__kororinFail('ころころの準備ができませんでした。', location.protocol === 'file:'
+      ? 'ファイルを直接開いているようです。簡易サーバー経由（README を見てね）で開いてください。'
+      : '通信が切れたか、ファイルが足りないかもしれません。少し待って、もういちど読み込んでみてください。');
+  };
+  setTimeout(function () { if (!window.__booted) window.__kororinLoadFail(); }, 12000);
+})();
+</script>
+<script type="module" src="js/main.js" onerror="__kororinLoadFail()"></script>
+</body>
+</html>
