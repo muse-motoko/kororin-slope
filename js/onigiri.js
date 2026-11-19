@@ -166,9 +166,9 @@ export function createOnigiri(shared) {
     cone: [new THREE.Mesh(new THREE.ConeGeometry(0.8, 1.6, 12), topMat)],
     trio: [0, 1, 2].map(() => new THREE.Mesh(new THREE.SphereGeometry(1, 10, 8), topMat)),
   };
-  topShapes.disc[0].scale.set(1.3, 0.45, 1.3);
-  const trioPos = [[-0.1, 0, 0.02], [0.1, 0.01, 0], [0, 0.1, 0.04]];
-  topShapes.trio.forEach((m, i) => { m.position.set(...trioPos[i]); m.scale.setScalar(0.9 + (i === 2 ? 0.2 : 0)); });
+  topShapes.disc[0].scale.set(1.15, 0.4, 1.15);
+  const trioPos = [[-0.55, 0, 0.1], [0.55, 0.05, 0], [0, 0.6, 0.2]];
+  topShapes.trio.forEach((m, i) => { m.position.set(...trioPos[i]); m.scale.setScalar(0.55 + (i === 2 ? 0.1 : 0)); });
   Object.values(topShapes).forEach((arr) => arr.forEach((m) => { m.castShadow = true; topGroup.add(m); }));
   topGroup.position.set(0, ONIGIRI.topY, ONIGIRI.topZ);
   root.add(topGroup);
@@ -179,8 +179,8 @@ export function createOnigiri(shared) {
     if (f.nori) { band.visible = true; noriMat.color.setRGB(f.nori[0], f.nori[1], f.nori[2]); } else band.visible = false;
     topMat.color.set(f.top.color);
     for (const k in topShapes) topShapes[k].forEach((m) => { m.visible = k === f.top.shape; });
-    const sc = f.top.size / 0.1; // 基準の大きさ 0.1m
-    topGroup.scale.setScalar(f.top.shape === 'trio' ? sc * 1.8 : sc);
+    // 具のジオメトリは半径1の単位形状。size(m)をそのまま半径にする（本体半径0.5mの1〜3割）
+    topGroup.scale.setScalar(f.top.shape === 'trio' ? f.top.size * 1.5 : f.top.size);
     topMat.metalness = f.rare ? 0.45 : 0; topMat.roughness = f.rare ? 0.3 : 0.5;
   }
 
