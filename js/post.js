@@ -1,6 +1,6 @@
 // ポストエフェクト：シーンを一度バッファに描き、ブルーム（明るい所のにじみ）→ チルトシフト → ヴィネットを重ねて画面に出す。
 // Three.js 本体だけで書いた自前実装（vendor に addons は無いため）。使えない環境では enabled にならず、通常描画に戻る。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { POST } from './config.js';
 
 const VERT = 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }';
