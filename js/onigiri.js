@@ -1,6 +1,6 @@
 // おむすび本体：丸みのある三角形の厚みのある形に、米粒・海苔のテクスチャ（Canvas で自前生成）と
 // 縁のほんのり明るいサブサーフェス風の味付け。つぶれ（スカッシュ）のバネもここ。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { ONIGIRI, SIM } from './config.js';
 import { mulberry32 } from './physics.js';
 
