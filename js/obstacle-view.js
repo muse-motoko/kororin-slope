@@ -1,5 +1,5 @@
 // 障害物の見た目（もちもち・ふわふわキノコ・丸岩）。物理の sim.obs に合わせてメッシュを作り、揺れ（バネ）をつぶれ・のびで表す。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { OBSTACLES } from './config.js';
 import { noise2 } from './physics.js';
 
