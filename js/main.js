@@ -1,4 +1,4 @@
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { QUALITY_LEVELS, DEFAULT_QUALITY, DPR_HARD_MAX, POST, AUDIO, SHOT } from './config.js';
 import { createPost } from './post.js';
 import { createAudio } from './audio.js';
