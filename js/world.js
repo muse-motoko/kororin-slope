@@ -1,4 +1,4 @@
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { COLORS, CAMERA, ONIGIRI, SIM, WORLD, QUALITY_LEVELS, DEFAULT_QUALITY } from './config.js';
 import { worldHeight, noise2, localHeight, normalAt } from './physics.js';
 import { createOnigiri } from './onigiri.js';
