@@ -1,5 +1,5 @@
 // 丸い装飾（木・花・雲・丘）。チャンクごとに「配置の決定（純粋）」→「1枚の頂点カラーメッシュにまとめる」の2段階。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { PALETTE, SIM } from './config.js';
 import { mulberry32, worldHeight } from './physics.js';
 
