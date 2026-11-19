@@ -1,5 +1,5 @@
 // 空のグラデーション・星・遠景の丘・花びら/綿毛のパーティクル。
-import * as THREE from '../vendor/three.module.min.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
 import { mulberry32 } from './physics.js';
 
 // ===== 空：カメラに追従する大きな球にグラデーションを描く =====
